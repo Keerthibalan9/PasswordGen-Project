@@ -1,0 +1,9 @@
+.input{
+    border: 1px #EEEEEE solid;
+    border-radius: 30px;
+    width: 307px;
+}
+.input:hover{
+    border: 1px #64CCC5 solid;
+    width: 307px;
+}
