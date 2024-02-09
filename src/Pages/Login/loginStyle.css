@@ -1,0 +1,29 @@
+.title{
+ color: #64CCC5;
+    font-size: 40px;
+    font-weight: 400;
+}
+.highlight{
+    font-weight: 600;
+
+}
+
+.bgBlue{
+    /* background-image: linear-gradient(0deg, #02298A, #0575E6); */
+    background-color: #164863;
+    height: 100vh;
+}
+
+p{
+    color: #DAFFFB;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.loginWrapper{
+display: flex;
+flex-direction: column;
+justify-content: start;
+align-items: start;
+padding-left: 160px;
+}
