@@ -1,7 +1,5 @@
 import React from "react";
 import './loginStyle.css';
-import Button from '../../components/Button/Button'
-import inputField from "../../components/InputField/InputField";
 
 const Login = () => {
     return (
@@ -23,7 +21,7 @@ const Login = () => {
                 <div className="d-flex align-items-center">
                     <div style={{ color: "#176B87",fontSize:"15px" }}> I dont have account</div>
     
-                    <button className="linkButton">Create Account</button>
+                    <button className="linkButton" to="/Create">Create Account</button>
                 </div>
             </div>
         </div>
