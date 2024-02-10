@@ -6,6 +6,7 @@
     border: 1px solid #fff;
     border-radius: 30px;
     width: auto;
+    text-decoration: none;
 }
 .secondary:hover{
     background-color:#96E9C6;
@@ -15,6 +16,7 @@
     border: none;
     border-radius: 30px;
     width: auto;
+    text-decoration: none;
 }
 
 .Nav{

@@ -1,6 +1,8 @@
 import React from "react";
 import {Link } from "react-router-dom";
 import './loginStyle.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     return (
@@ -23,6 +25,7 @@ const Login = () => {
                     <div style={{ color: "#176B87",fontSize:"15px" }}> I dont have account</div>
     
                     <Link className="linkButton" to="/create">Create Account</Link>
+                    <ToastContainer />
                 </div>
             </div>
         </div>
