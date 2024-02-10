@@ -1,0 +1,24 @@
+.secondary{
+ background-color: transparent;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    width: auto;
+}
+.secondary:hover{
+    background-color:#96E9C6;
+    color: #04364A;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 30px;
+    width: auto;
+}
+
+.Nav{
+    width: 100vw;
+    height: 56px;
+    background-color: #04364A;
+}
