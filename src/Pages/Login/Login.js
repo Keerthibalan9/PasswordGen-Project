@@ -12,14 +12,17 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("op",data);
-        const user = storedUsers.find(user => user.email === e.target.email.value && user.password === e.target.password.value);
-        if( user ){
-            const name = user.name;
-            console.log("Found", name);
-            navigate('/home', { state: name })   
-        } else{
-            toast.error("Acount Not Found!");
+        const user = storedUsers.find(user => user.email === e.target.email.value);
+        if (user) {
+            if (user.password === e.target.password.value) {
+                const name = user.name;
+                navigate('/home', { state: name })
+            } else {
+                toast.error("Incorrect Password! Try Again!");
+                return;
+            }
+        } else {
+            toast.error("Account Not Found!");
             return;
         }
     }
