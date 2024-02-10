@@ -21,15 +21,16 @@ const SignIn = () => {
             } else {
                 for (let val of data) {
                     setEmail(val.email)
-                    if (email !== e.target.email.value) {
-                        localStorage.setItem('user', JSON.stringify([...data,{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, }]))
-                        navigate('/home', { state: e.target.name.value })
-                    } else {
-                        if (val.email.includes(e.target.email.value)) {
-                            toast.error("User already exists!");
-                            return;
-                        }
+                    if (val.email.includes(e.target.email.value)) {
+                        console.log("Im rejected");
+                        toast.error("User already exists!");
+                        return;
                     }
+                }
+                if (email !== e.target.email.value) {
+                    localStorage.setItem('user', JSON.stringify([...data, { name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, }]))
+                    navigate('/home', { state: e.target.name.value })
+                    console.log("Im added");
                 }
             }
         }
