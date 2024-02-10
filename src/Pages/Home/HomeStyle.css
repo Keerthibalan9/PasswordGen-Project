@@ -24,3 +24,60 @@
     height: 56px;
     background-color: #04364A;
 }
+.Navbg{
+    width: 100vw;
+    height: 56px;
+    background-color: #04364A;
+}
+
+.copyBtn{
+    background-color:transparent;
+    color: #176B87;
+    padding: 16px 16px;
+    font-size: 16px;
+    border:none;
+    border-radius: 30px;
+    width: auto;
+}
+.copyBtn:hover{
+    background-color:transparent;
+    color: #04364A;
+    padding: 16px 16px;
+    font-size: 16px;
+    border:1px solid #04364A;
+    border-radius: 30px;
+    width: auto;
+    cursor: pointer;
+}
+
+
+.inputCopy{
+    height: 60px;
+    width: 440px;
+    font-size: 32px;
+    font-weight: 600;
+    border: none;
+    background-color: #DAFFFB;
+    text-align: center;
+    color: #04364A;
+    border-radius: 4px;
+margin: 12px 0px;
+}
+
+.passWrapper{
+    display: flex;
+    flex-direction: column;
+}
+.welcomeNote{
+    text-align: left;
+    color: #04364A;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 12px 0px;
+}
+
+.clear{
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+}
