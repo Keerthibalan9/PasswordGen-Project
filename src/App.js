@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Pages/Login/Login';
 import SignIn from './Pages/Signup/Signin'
 import Home from './Pages/Home/Home'
+import History from './Pages/History/History';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <Route path="/" element={<Login/>}/>
     <Route path="/create" element={<SignIn/>}/>
     <Route path="/home" element={<Home/>}/>
+    <Route path="/history" element={<History/>}/>
     {/* <Route path="/" element={[<Menu/>,<Home/>]}/>
     <Route path="/AboutUs" element={[<Menu/>,<About/>]}/>
     <Route path="/ContactUs" element={[<Menu/>,<Contact/>]}/> */}

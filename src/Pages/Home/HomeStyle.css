@@ -1,5 +1,5 @@
-.secondary{
- background-color: transparent;
+.secondary {
+    background-color: transparent;
     color: #fff;
     padding: 8px 16px;
     font-size: 14px;
@@ -8,8 +8,9 @@
     width: auto;
     text-decoration: none;
 }
-.secondary:hover{
-    background-color:#96E9C6;
+
+.secondary:hover {
+    background-color: #96E9C6;
     color: #04364A;
     padding: 8px 16px;
     font-size: 14px;
@@ -19,39 +20,41 @@
     text-decoration: none;
 }
 
-.Nav{
-    width: 100vw;
-    height: 56px;
-    background-color: #04364A;
-}
-.Navbg{
+.Nav {
     width: 100vw;
     height: 56px;
     background-color: #04364A;
 }
 
-.copyBtn{
-    background-color:transparent;
+.Navbg {
+    width: 100vw;
+    height: 56px;
+    background-color: #04364A;
+}
+
+.copyBtn {
+    background-color: transparent;
     color: #176B87;
     padding: 16px 16px;
     font-size: 16px;
-    border:1px solid #04364a00;
+    border: 1px solid #04364a00;
     border-radius: 30px;
     width: auto;
 }
-.copyBtn:hover{
-    background-color:transparent;
+
+.copyBtn:hover {
+    background-color: transparent;
     color: #04364A;
     padding: 16px 16px;
     font-size: 16px;
-    border:1px solid #04364A;
+    border: 1px solid #04364A;
     border-radius: 30px;
     width: auto;
     cursor: pointer;
 }
 
 
-.inputCopy{
+.inputCopy {
     height: 60px;
     width: 480px;
     font-size: 32px;
@@ -61,14 +64,15 @@
     text-align: center;
     color: #04364A;
     border-radius: 4px;
-margin: 12px 0px;
+    margin: 12px 0px;
 }
 
-.passWrapper{
+.passWrapper {
     display: flex;
     flex-direction: column;
 }
-.welcomeNote{
+
+.welcomeNote {
     text-align: left;
     color: #04364A;
     font-size: 20px;
@@ -76,20 +80,38 @@ margin: 12px 0px;
     padding: 12px 0px;
 }
 
-.clear{
+.clear {
     width: 100vw;
     margin: 0px;
     padding: 0px;
 }
 
-  .bgm{
-background-color: #DAFFFB;
-height: auto;
-padding: 40px;
-width: auto;
-border-radius: 4px;
-  }
+.bgm {
+    background-color: #DAFFFB;
+    height: auto;
+    padding: 40px;
+    width: auto;
+    border-radius: 4px;
+}
 
-  .checkWidth{
+.checkWidth {
     width: 120px;
-  }
+}
+
+.linkButton {
+    color: #176B87;
+    font-size: 16px;
+    border: none;
+    background-color: #fff;
+    text-decoration: underline;
+    padding: 0px 12px;
+}
+
+.linkButton:hover {
+    color: #04364A;
+    text-decoration: underline;
+    background-color:#DAFFFB;
+    font-size: 16px;
+    border: none;
+    background-color: #fff;
+}

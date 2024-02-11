@@ -12,8 +12,8 @@ const Home = () => {
     const [includeUppercase, setIncludeUppercase] = useState(true);
     const [includeNumbers, setIncludeNumbers] = useState(true);
     const [includeSymbols, setIncludeSymbols] = useState(true);
-    const [generatedPassword, setGeneratedPassword] = useState('');
-    const [isSelected, setIsSelected] = useState(false);
+    const [generatedPassword, setGeneratedPassword] = useState(' ');
+    const [passwordsHistory, setPasswordsHistory] = useState([]);
 
     function generatePassword(length, options) {
         const chars = {
@@ -48,6 +48,7 @@ const Home = () => {
 
         const password = generatePassword(passwordLength, options);
         setGeneratedPassword(password);
+        setPasswordsHistory([...passwordsHistory, password]);
     };
 
     const handleCopyToClipboard = () => {
@@ -65,12 +66,6 @@ const Home = () => {
         return;
     };
 
-
-
-    const handleClick = () => {
-        setIsSelected(!isSelected);
-    };
-
     return (
         <div className="clear">
             <div className="container-fluid Nav">
@@ -81,7 +76,11 @@ const Home = () => {
             </div>
 
             <div className="container">
-                <div className="welcomeNote">Welcome, {data.state}!</div>
+                <div className="d-flex align-items-center justify-content-between">
+                    <div className="welcomeNote">Welcome, {data.state}!</div>
+                    <Link className="linkButton" to={{ pathname: '/history', state: { passwordsHistory } }}>Password History</Link>
+                </div>
+
                 <div className="d-flex align-items-center justify-content-center">
 
                     <div className="passWrapper bgm d-flex align-items-center justify-content-center">
@@ -107,7 +106,7 @@ const Home = () => {
                                     max={20}
                                     readonly
                                 />
-                                <span style={{ color: "#000", fontSize: "12px",padding:"8px 0px 0px" }}>Min.4 | Max.20</span>
+                                <span style={{ color: "#000", fontSize: "12px", padding: "8px 0px 0px" }}>Min.4 | Max.20</span>
                             </div>
                             <div className="d-flex flex-column align-items-start p-4">
                                 <h6>Your password contains</h6>

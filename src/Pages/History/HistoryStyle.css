@@ -1,0 +1,18 @@
+.clear {
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+}
+.Nav {
+    width: 100vw;
+    height: 56px;
+    background-color: #04364A;
+}
+
+.welcomeNote {
+    text-align: left;
+    color: #04364A;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 12px 0px;
+}
