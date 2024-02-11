@@ -13,6 +13,7 @@ const Home = () => {
     const [includeNumbers, setIncludeNumbers] = useState(true);
     const [includeSymbols, setIncludeSymbols] = useState(true);
     const [generatedPassword, setGeneratedPassword] = useState('');
+    const [isSelected, setIsSelected] = useState(false);
 
     function generatePassword(length, options) {
         const chars = {
@@ -64,6 +65,12 @@ const Home = () => {
         return;
     };
 
+
+
+    const handleClick = () => {
+        setIsSelected(!isSelected);
+    };
+
     return (
         <div className="clear">
             <div className="container-fluid Nav">
@@ -75,21 +82,23 @@ const Home = () => {
 
             <div className="container">
                 <div className="welcomeNote">Welcome, {data.state}!</div>
-                <div className="row">
-                    <div className="passWrapper col-lg-7">
+                <div className="d-flex align-items-center justify-content-center">
+
+                    <div className="passWrapper bgm d-flex align-items-center justify-content-center">
+                        <h4>Generator Module</h4>
                         <div>
                             {generatedPassword && (
-                                <div className="d-flex align-items-center">
+                                <div className="d-flex align-items-center justify-content-center gap-4 ">
                                     <input type="text" value={generatedPassword} readOnly className="inputCopy" />
-                                 
+
                                     <div onClick={handleCopyToClipboard} className="copyBtn">Copy Password!</div>
                                     <ToastContainer />
                                 </div>
                             )}
                         </div>
-                        <div>
-                            <label>
-                                Password Length:
+                        <div className="d-flex align-items-center justify-content-center gap-4">
+                            <div className="d-flex flex-column align-items-start justify-content-start pe-5 border-end">
+                                <h6>What is the required password length?</h6>
                                 <input
                                     type="number"
                                     value={passwordLength}
@@ -98,53 +107,58 @@ const Home = () => {
                                     max={20}
                                     readonly
                                 />
-                                <label>Min. 4 and Max. 20</label>
-                            </label>
-                            <br />
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    checked={includeLowercase}
-                                    onChange={() => setIncludeLowercase(!includeLowercase)}
-                                />
-                                Include Lowercase
-                            </label>
-                            <br />
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    checked={includeUppercase}
-                                    onChange={() => setIncludeUppercase(!includeUppercase)}
-                                />
-                                Include Uppercase
-                            </label>
-                            <br />
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    checked={includeNumbers}
-                                    onChange={() => setIncludeNumbers(!includeNumbers)}
-                                />
-                                Include Numbers
-                            </label>
-                            <br />
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    checked={includeSymbols}
-                                    onChange={() => setIncludeSymbols(!includeSymbols)}
-                                />
-                                Include Symbols
-                            </label>
-                            <br />
-                            <button onClick={handleGeneratePassword} className="primary">Generate Password</button>
-                            <br />
-                        </div>
+                                <span style={{ color: "#000", fontSize: "12px",padding:"8px 0px 0px" }}>Min.4 | Max.20</span>
+                            </div>
+                            <div className="d-flex flex-column align-items-start p-4">
+                                <h6>Your password contains</h6>
+                                <div className="d-flex align-items-center justify-content-start gap-4">
+                                    <div className="d-flex flex-column gap-2">
+                                        <div className="d-flex gap-4">
+                                            <div className="checkWidth d-flex gap-2">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={includeLowercase}
+                                                    onChange={() => setIncludeLowercase(!includeLowercase)}
+                                                />
+                                                Lowercase
+                                            </div>
 
+                                            <div className="checkWidth d-flex gap-2">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={includeUppercase}
+                                                    onChange={() => setIncludeUppercase(!includeUppercase)}
+                                                />
+                                                Uppercase
+                                            </div>
+                                        </div>
+                                        <div className="d-flex gap-4">
+                                            <div className="checkWidth d-flex gap-2">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={includeNumbers}
+                                                    onChange={() => setIncludeNumbers(!includeNumbers)}
+                                                />
+                                                Numbers
+                                            </div>
+
+                                            <div className="checkWidth d-flex gap-2">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={includeSymbols}
+                                                    onChange={() => setIncludeSymbols(!includeSymbols)}
+                                                />
+                                                Symbols
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button onClick={handleGeneratePassword} className="primary">Generate Password</button>
                     </div>
-                    <div className="col-lg-5">
-                        Table
-                    </div>
+
                 </div>
             </div>
         </div>
