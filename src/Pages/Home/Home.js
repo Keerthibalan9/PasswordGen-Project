@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import './HomeStyle.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -7,13 +7,14 @@ import 'react-toastify/dist/ReactToastify.css';
 const Home = () => {
     const data = useLocation();
 
-    const [passwordLength, setPasswordLength] = useState(12);
+    const [passwordLength, setPasswordLength] = useState(6);
     const [includeLowercase, setIncludeLowercase] = useState(true);
     const [includeUppercase, setIncludeUppercase] = useState(true);
     const [includeNumbers, setIncludeNumbers] = useState(true);
     const [includeSymbols, setIncludeSymbols] = useState(true);
     const [generatedPassword, setGeneratedPassword] = useState(' ');
     const [passwordsHistory, setPasswordsHistory] = useState([]);
+
 
     function generatePassword(length, options) {
         const chars = {
@@ -78,7 +79,7 @@ const Home = () => {
             <div className="container">
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="welcomeNote">Welcome, {data.state}!</div>
-                    <Link className="linkButton" to={{ pathname: '/history', state: { passwordsHistory } }}>Password History</Link>
+                    <Link className="linkButton" to={{ pathname: '/history' }}>Password History</Link>
                 </div>
 
                 <div className="d-flex align-items-center justify-content-center">

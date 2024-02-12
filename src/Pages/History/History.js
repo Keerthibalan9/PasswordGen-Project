@@ -5,7 +5,7 @@ function History() {
     const navigate = useNavigate();
     return (
         <div className="clear">
-            <div className="container-fluid Nav">
+            <div className="d-flex align-items-center container-fluid Nav">
                 <div className=" d-flex align-items-center justify-content-between container ">
                     <span style={{ color: "#96E9C6", fontWeight: "600", fontSize: "20px" }}>PasswordGen***</span>
                     <Link className="secondary" to="/">Logout</Link>
