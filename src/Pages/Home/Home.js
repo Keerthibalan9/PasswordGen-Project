@@ -17,8 +17,13 @@ const Home = () => {
     const [currentUser, setCurrentUser] = useState(data.state);
     const [currentUserData, setCurrentUserData] = useState(JSON.parse(localStorage.getItem(currentUser)));
 
+    // Use map to update each object with the new array
+    const updatedArray = currentUserData.map(obj => ({
+      ...obj,
+      history: passwordsHistory,
+    }));
 
-    console.log("Hoi",currentUserData);
+    console.log("Hoi",updatedArray);
 
 
     function generatePassword(length, options) {
@@ -55,6 +60,7 @@ const Home = () => {
         const password = generatePassword(passwordLength, options);
         setGeneratedPassword(password);
         setPasswordsHistory([...passwordsHistory, password]);
+        localStorage.setItem(currentUser, JSON.stringify( updatedArray))
     };
 
     const handleCopyToClipboard = () => {
