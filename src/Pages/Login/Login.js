@@ -7,16 +7,18 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
-    const [email, setEmail] = useState("");
-    const storedUsers = JSON.parse(localStorage.getItem("user"));
+    
+   
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const email= e.target.email.value;
+        const storedUsers = JSON.parse(localStorage.getItem(email));
         const user = storedUsers.find(user => user.email === e.target.email.value);
         if (user) {
             if (user.password === e.target.password.value) {
-                const name = user.name;
-                navigate('/home', { state: name })
+                const email = user.email;
+                navigate('/home', { state: email })
             } else {
                 toast.error("Incorrect Password! Try Again!");
                 return;
