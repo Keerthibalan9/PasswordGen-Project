@@ -16,6 +16,8 @@ const Home = () => {
     const [passwordsHistory, setPasswordsHistory] = useState([]);
     const [currentUser, setCurrentUser] = useState(data.state);
     const [currentUserData, setCurrentUserData] = useState(JSON.parse(localStorage.getItem(currentUser)));
+    const userName = currentUserData[0].name;
+
 
     // Use map to update each object with the new array
     const updatedArray = currentUserData.map(obj => ({
@@ -23,7 +25,7 @@ const Home = () => {
       history: passwordsHistory,
     }));
 
-    console.log("Hoi",updatedArray);
+    console.log("Hoi",userName);
 
 
     function generatePassword(length, options) {
@@ -89,7 +91,7 @@ const Home = () => {
 
             <div className="container">
                 <div className="d-flex align-items-center justify-content-between">
-                    <div className="welcomeNote">Welcome, {data.state}!</div>
+                    <div className="welcomeNote">Welcome, {userName}!</div>
                     <Link className="linkButton" to={{ pathname: '/history' }}>Password History</Link>
                 </div>
 
