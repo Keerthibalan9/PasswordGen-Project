@@ -14,6 +14,11 @@ const Home = () => {
     const [includeSymbols, setIncludeSymbols] = useState(true);
     const [generatedPassword, setGeneratedPassword] = useState(' ');
     const [passwordsHistory, setPasswordsHistory] = useState([]);
+    const [currentUser, setCurrentUser] = useState(data.state);
+    const [currentUserData, setCurrentUserData] = useState(JSON.parse(localStorage.getItem(currentUser)));
+
+
+    console.log("Hoi",currentUserData);
 
 
     function generatePassword(length, options) {
