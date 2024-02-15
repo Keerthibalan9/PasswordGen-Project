@@ -16,7 +16,7 @@ const SignIn = () => {
         e.preventDefault();
         if (e.target.name.value && e.target.email.value && e.target.password.value) {
             if (!localStorage.getItem('user')) {
-                localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, }]))
+                localStorage.setItem(e.target.email.value, JSON.stringify({ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, }))
                 navigate('/home', { state: e.target.name.value })
             } else {
                 for (let val of data) {
