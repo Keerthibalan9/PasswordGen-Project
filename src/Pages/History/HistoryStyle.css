@@ -16,3 +16,24 @@
     font-weight: 600;
     padding: 12px 0px;
 }
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+  
+  }
+  .name{
+    width: 200px;
+  }
+
+  td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 2px 6px;
+  
+  }
+  th {
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 2px 6px;
+  }
