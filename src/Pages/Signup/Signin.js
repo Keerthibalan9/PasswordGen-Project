@@ -13,15 +13,6 @@ const SignIn = () => {
         setData(JSON.parse(localStorage.getItem('user')))
     }, [])
 
-
-    if (data === null) {
-        // Object is null
-        console.log("Object is null");
-    } else {
-        // Object is not null
-        console.log("Object is not null");
-    }
-
     const handleCheckboxChange = () => {
         setChecked(!isChecked);
     };
@@ -33,10 +24,10 @@ const SignIn = () => {
             if (!localStorage.getItem('user')) {
 
                 if (isChecked === true) {
-                    localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, role: "admin" }]))
+                    localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, admin: true }]))
                     navigate('/home', { state: e.target.name.value })
                 } else {
-                    localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, role: "member" }]))
+                    localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, admin: false }]))
                     navigate('/home', { state: e.target.name.value })
                 }
 

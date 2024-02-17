@@ -12,17 +12,14 @@ const Home = () => {
     const [includeUppercase, setIncludeUppercase] = useState(true);
     const [includeNumbers, setIncludeNumbers] = useState(true);
     const [includeSymbols, setIncludeSymbols] = useState(true);
-    const [generatedPassword, setGeneratedPassword] = useState(' ');
+    const [generatedPassword, setGeneratedPassword] = useState('');
     const [passwordsHistory, setPasswordsHistory] = useState([]);
     const [currentUser, setCurrentUser] = useState(data.state);
     const [currentUserData, setCurrentUserData] = useState(JSON.parse(localStorage.getItem(currentUser)));
-    // const userName = currentUserData[0].name;
-    const userName = currentUserData && currentUserData[0] && currentUserData[0].name;
-    const userRole = currentUserData && currentUserData[0] && currentUserData[0].role;
+    const userName = currentUserData[0].name;
+    const userRole = currentUserData[0].role;
 
-    // const userRole = currentUserData[0].role;
-
-    const isAdmin = userRole === 'admin';
+    const isAdmin = userRole === true;
 
     console.log("currentUserData:", currentUserData);
 
