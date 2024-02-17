@@ -31,23 +31,6 @@ const Login = () => {
             toast.error("Account Not Found!");
             return;
         }
-
-
-        //     if (storedUsers && storedUsers.length > 0) {
-        //         const storedEmail = storedUsers[0].email;
-        //         if (storedUsers) {
-        //             if (e.target.email.value === storedEmail) {
-        //                 const email = storedEmail;
-        //                 navigate('/home', { state: email })
-        //             } else {
-        //                 toast.error("Incorrect Password! Try Again!");
-        //                 return;
-        //             }
-        //         }
-        //     } else {
-        //         toast.error("Account Not Found!");
-        //         return;
-        //     }
     };
 
 

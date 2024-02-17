@@ -60,6 +60,15 @@ padding-left: 160px;
     border-radius: 30px;
     width: 307px;
 }
+.disPrimary{
+    background-color: #e4e4e4;
+    color: rgb(81, 81, 81);
+    padding: 18px 26px;
+    font-size: 16px;
+    border: 1px solid rgb(81, 81, 81);
+    border-radius: 30px;
+    width: 307px;
+}
 .primary:hover{
     background-color: #04364A;
     color: white;

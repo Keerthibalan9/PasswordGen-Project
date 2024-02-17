@@ -9,7 +9,7 @@ const SignIn = () => {
     const [data, setData] = useState([]);
     const [email, setEmail] = useState("");
     const [isChecked, setChecked] = useState(false);
-    useEffect(() => {
+        useEffect(() => {
         setData(JSON.parse(localStorage.getItem('user')))
     }, [])
 
@@ -21,23 +21,26 @@ const SignIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (e.target.name.value && e.target.email.value && e.target.password.value) {
-            if (!localStorage.getItem(e.target.email.value)) {
+                        if (!localStorage.getItem(e.target.email.value)) {
                 console.log("User not found");
 
                 if (isChecked === true) {
                     localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, admin: true }]))
-                    navigate('/home', { state: e.target.name.value })
+                    // navigate('/login', { state: e.target.name.value })
                     console.log("User not found. so creating a user with admin access");
+                    toast.success("Admin Account Created!");
+                    return;
                 } else {
                     localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, admin: false }]))
-                    navigate('/home', { state: e.target.name.value })
+                    // navigate('/login', { state: e.target.name.value })
                     console.log("User not found. so creating a member user");
+                    toast.success("Member Account Created!");
+                    return;
                 }
 
             } else {
                 toast.error("User already exists!");
-                        console.log("User already have an account");
-                        return;
+                return;
             }
         }
     }
@@ -63,8 +66,8 @@ const SignIn = () => {
                         <input type="checkbox" id="adminCheckbox" className="pointer" onChange={handleCheckboxChange}></input>
                         <label for="adminCheckbox" className="pointer">Im an Admin</label>
                     </div>
-                    <button className="primary">Create</button>
-                </form>
+                                            <button className="primary">Create</button>
+                                    </form>
                 <div className="d-flex align-items-center gap-2">
                     <div style={{ color: "#176B87", fontSize: "15px" }}> Already have account?</div>
                     <Link className="linkButton" to="/">Login</Link>
