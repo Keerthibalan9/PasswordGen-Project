@@ -7,13 +7,17 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
-    
-   
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const email= e.target.email.value;
+        const email = e.target.email.value;
         const storedUsers = JSON.parse(localStorage.getItem(email));
+        if(!storedUsers){
+            toast.error("Account Not Found!");
+            return;
+        }
         const user = storedUsers.find(user => user.email === e.target.email.value);
         if (user) {
             if (user.password === e.target.password.value) {
@@ -27,7 +31,26 @@ const Login = () => {
             toast.error("Account Not Found!");
             return;
         }
-    }
+
+
+        //     if (storedUsers && storedUsers.length > 0) {
+        //         const storedEmail = storedUsers[0].email;
+        //         if (storedUsers) {
+        //             if (e.target.email.value === storedEmail) {
+        //                 const email = storedEmail;
+        //                 navigate('/home', { state: email })
+        //             } else {
+        //                 toast.error("Incorrect Password! Try Again!");
+        //                 return;
+        //             }
+        //         }
+        //     } else {
+        //         toast.error("Account Not Found!");
+        //         return;
+        //     }
+    };
+
+
     return (
         <div className="row d-flex">
             <div className="col-lg-7 bgBlue d-flex align-items-center">
