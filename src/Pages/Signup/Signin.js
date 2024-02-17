@@ -21,28 +21,23 @@ const SignIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (e.target.name.value && e.target.email.value && e.target.password.value) {
-            if (!localStorage.getItem('user')) {
+            if (!localStorage.getItem(e.target.email.value)) {
+                console.log("User not found");
 
                 if (isChecked === true) {
                     localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, admin: true }]))
                     navigate('/home', { state: e.target.name.value })
+                    console.log("User not found. so creating a user with admin access");
                 } else {
                     localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, admin: false }]))
                     navigate('/home', { state: e.target.name.value })
+                    console.log("User not found. so creating a member user");
                 }
 
             } else {
-                for (let val of data) {
-                    setEmail(val.email)
-                    if (val.email.includes(e.target.email.value)) {
-                        toast.error("User already exists!");
+                toast.error("User already exists!");
+                        console.log("User already have an account");
                         return;
-                    }
-                }
-                if (email !== e.target.email.value) {
-                    localStorage.setItem('user', JSON.stringify([...data, { name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, }]))
-                    navigate('/home', { state: e.target.name.value })
-                }
             }
         }
     }
