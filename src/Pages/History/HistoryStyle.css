@@ -19,7 +19,8 @@
 
 table {
     border-collapse: collapse;
-    border: 1px solid black;
+    border: 1px solid #04364A;
+    width: 1000px;
   
   }
   .name{
@@ -28,12 +29,13 @@ table {
 
   td {
     border-collapse: collapse;
-    border: 1px solid black;
+    border: 1px solid #04364A;
     padding: 2px 6px;
   
   }
   th {
     border-collapse: collapse;
-    border: 1px solid black;
+    border: 1px solid #04364A;
     padding: 2px 6px;
+    color: #04364A;
   }

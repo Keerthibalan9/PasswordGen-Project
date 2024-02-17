@@ -83,4 +83,6 @@ padding-left: 160px;
     font-size: 16px;
     border: none;
     background-color: #fff;
+}.pointer{
+    cursor: pointer;
 }

@@ -8,16 +8,38 @@ const SignIn = () => {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [email, setEmail] = useState("");
+    const [isChecked, setChecked] = useState(false);
     useEffect(() => {
         setData(JSON.parse(localStorage.getItem('user')))
     }, [])
+
+
+    if (data === null) {
+        // Object is null
+        console.log("Object is null");
+    } else {
+        // Object is not null
+        console.log("Object is not null");
+    }
+
+    const handleCheckboxChange = () => {
+        setChecked(!isChecked);
+    };
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (e.target.name.value && e.target.email.value && e.target.password.value) {
             if (!localStorage.getItem('user')) {
-                localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, }]))
-                navigate('/home', { state: e.target.name.value })
+
+                if (isChecked === true) {
+                    localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, role: "admin" }]))
+                    navigate('/home', { state: e.target.name.value })
+                } else {
+                    localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, role: "member" }]))
+                    navigate('/home', { state: e.target.name.value })
+                }
+
             } else {
                 for (let val of data) {
                     setEmail(val.email)
@@ -35,6 +57,7 @@ const SignIn = () => {
     }
 
 
+
     return (
         <div className="row d-flex">
             <div className="col-lg-7 bgBlue d-flex align-items-center">
@@ -49,6 +72,11 @@ const SignIn = () => {
                     <input type="text" className="input" placeholder="Name" name="name" />
                     <input type="email" className="input" placeholder="Email Address" name="email" />
                     <input type="password" className="input" placeholder="password" name="password" />
+                    <div className="d-flex gap-2 mb-3 pointer">
+
+                        <input type="checkbox" id="adminCheckbox" className="pointer" onChange={handleCheckboxChange}></input>
+                        <label for="adminCheckbox" className="pointer">Im an Admin</label>
+                    </div>
                     <button className="primary">Create</button>
                 </form>
                 <div className="d-flex align-items-center gap-2">

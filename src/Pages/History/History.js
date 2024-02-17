@@ -80,7 +80,7 @@ function History() {
                             {Object.entries(data).map(([email, user]) => (
                                 <tr key={email}>
                                     <td className='name'>{user[0].name}</td>
-                                    <td>{user[0].history.join(' || ')}</td>
+                                    <td>{user[0].history}</td>
                                     {/* <td>
                                         {user[0].history.map((item, index) => (
                                             <div key={index}>{item}</div>

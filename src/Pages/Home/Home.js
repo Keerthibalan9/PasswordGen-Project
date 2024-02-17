@@ -16,16 +16,25 @@ const Home = () => {
     const [passwordsHistory, setPasswordsHistory] = useState([]);
     const [currentUser, setCurrentUser] = useState(data.state);
     const [currentUserData, setCurrentUserData] = useState(JSON.parse(localStorage.getItem(currentUser)));
-    const userName = currentUserData[0].name;
+    // const userName = currentUserData[0].name;
+    const userName = currentUserData && currentUserData[0] && currentUserData[0].name;
+    const userRole = currentUserData && currentUserData[0] && currentUserData[0].role;
+
+    // const userRole = currentUserData[0].role;
+
+    const isAdmin = userRole === 'admin';
+
+    console.log("currentUserData:", currentUserData);
+
 
 
     // Use map to update each object with the new array
     const updatedArray = currentUserData.map(obj => ({
-      ...obj,
-      history: passwordsHistory,
+        ...obj,
+        history: passwordsHistory,
     }));
 
-    console.log("Hoi",userName);
+    console.log("Hoi", userName);
 
 
     function generatePassword(length, options) {
@@ -62,8 +71,9 @@ const Home = () => {
         const password = generatePassword(passwordLength, options);
         setGeneratedPassword(password);
         setPasswordsHistory([...passwordsHistory, password]);
-        localStorage.setItem(currentUser, JSON.stringify( updatedArray))
+        localStorage.setItem(currentUser, JSON.stringify(updatedArray))
     };
+    
 
     const handleCopyToClipboard = () => {
         navigator.clipboard.writeText(generatedPassword);
@@ -92,7 +102,11 @@ const Home = () => {
             <div className="container">
                 <div className="d-flex align-items-center justify-content-between">
                     <div className="welcomeNote">Welcome, {userName}!</div>
-                    <Link className="linkButton" to={{ pathname: '/history' }}>Password History</Link>
+                    {isAdmin ? (
+                        <Link className="linkButton" to={{ pathname: '/history' }}>Password History</Link>
+                    ) : (
+                        <button className="disButton" disabled>Password History</button>
+                    )}
                 </div>
 
                 <div className="d-flex align-items-center justify-content-center">
