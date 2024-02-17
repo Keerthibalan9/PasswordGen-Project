@@ -17,12 +17,13 @@ const Home = () => {
     const [currentUser, setCurrentUser] = useState(data.state);
     const [currentUserData, setCurrentUserData] = useState(JSON.parse(localStorage.getItem(currentUser)));
     const userName = currentUserData[0].name;
-    const userRole = currentUserData[0].role;
+    const userRole =  currentUserData[0].role;
 
-    const isAdmin = userRole === true;
+    const isAdmin = userRole === "admin";
 
-    console.log("currentUserData:", currentUserData);
-
+    console.log("currentUserEmail:", currentUserData);
+    console.log("Name", userName);
+    console.log("Role", userRole);
 
 
     // Use map to update each object with the new array
@@ -31,7 +32,7 @@ const Home = () => {
         history: passwordsHistory,
     }));
 
-    console.log("Hoi", userName);
+   
 
 
     function generatePassword(length, options) {

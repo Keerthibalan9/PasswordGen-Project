@@ -2,8 +2,8 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Pages/Login/Login';
-import SignIn from './Pages/Signup/Signin'
-import Home from './Pages/Home/Home'
+import SignIn from './Pages/Signup/Signin';
+import Home from './Pages/Home/Home';
 import History from './Pages/History/History';
 
 

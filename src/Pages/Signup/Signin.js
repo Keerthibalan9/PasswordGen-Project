@@ -25,17 +25,15 @@ const SignIn = () => {
                 console.log("User not found");
 
                 if (isChecked === true) {
-                    localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, admin: true }]))
-                    // navigate('/login', { state: e.target.name.value })
-                    console.log("User not found. so creating a user with admin access");
-                    toast.success("Admin Account Created!");
+                    localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, role: 'admin' }]))
+                    navigate('/home', { state: e.target.name.value })
+                  
                     return;
                 } else {
-                    localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, admin: false }]))
-                    // navigate('/login', { state: e.target.name.value })
+                    localStorage.setItem(e.target.email.value, JSON.stringify([{ name: e.target.name.value, email: e.target.email.value, password: e.target.password.value, role: 'member' }]))
+                    navigate('/home', { state: e.target.name.value })
                     console.log("User not found. so creating a member user");
-                    toast.success("Member Account Created!");
-                    return;
+                   
                 }
 
             } else {

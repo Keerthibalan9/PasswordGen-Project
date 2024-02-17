@@ -48,28 +48,7 @@ function History() {
                     <Link className="linkButton" onClick={() => navigate(-1)}>Go back</Link>
                 </div>
                 <div>
-                    {/* {Object.entries(data).map(([email, user]) => (
-                        <table key={email}>
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                
-                                    <th>History</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className='name'>{user[0].name}</td>
-                                    <td>
-                                        {user[0].history.map((item, index) => (
-                                            <div key={index} className='name'>{item}</div>
-                                        ))}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    ))} */}
-                     <table>
+                    <table>
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -80,15 +59,8 @@ function History() {
                             {Object.entries(data).map(([email, user]) => (
                                 <tr key={email}>
                                     <td className='name'>{user[0].name}</td>
-                                    <td>{user[0].history}</td>
-                                    {/* <td>
-                                        {user[0].history.map((item, index) => (
-                                            <div key={index}>{item}</div>
-                                        ))}
-                                    </td> */}
-
+                                    <td>{user[0].history.map(item => `🔑 ${item}`).join(" ")}</td>
                                 </tr>
-
                             ))}
                         </tbody>
                     </table>
