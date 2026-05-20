@@ -58,8 +58,8 @@ function History() {
                         <tbody>
                             {Object.entries(data).map(([email, user]) => (
                                 <tr key={email}>
-                                    <td className='name'>{user[0].name}</td>
-                                    <td>{user[0].history.map(item => `🔑 ${item}`).join(" ")}</td>
+                                    <td className='name'>{user[0]?.name || "Unknown"}</td>
+                                    <td>{(user[0]?.history || []).map(item => `🔑 ${item}`).join(" ")}</td>
                                 </tr>
                             ))}
                         </tbody>
